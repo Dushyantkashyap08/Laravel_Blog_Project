@@ -32,10 +32,10 @@ Route::get('/blog',[BlogViewController::class,'viewBlog']);
 
 Route::get('/home',[AdminViewController::class,'viewHomepage']);
 Route::get('/charts',[AdminViewController::class,'viewCharts']);
-Route::get('/forms',[AdminViewController::class,'viewForms']);
+Route::get('/show_post',[AdminViewController::class,'showPostPage']);
 Route::get('/login',[AdminViewController::class,'viewLogin']);
 Route::get('/register',[AdminViewController::class,'viewRegister']);
-Route::get('/post_page',[AdminViewController::class,'viewAddPostPage']);
+Route::get('/add_post',[AdminViewController::class,'addPostPage']);
 
 
 Route::post('/add_post',[AdminPanelController::class,'add_post']);

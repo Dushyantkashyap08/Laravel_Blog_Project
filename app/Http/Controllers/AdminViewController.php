@@ -16,9 +16,9 @@ class AdminViewController extends Controller
         return view('admin-panel.charts');
     }
 
-    public function viewForms()
+    public function showPostPage()
     {
-        return view('admin-panel.forms');
+        return view('admin-panel.show_post');
     }
 
     public function viewLogin()
@@ -31,7 +31,7 @@ class AdminViewController extends Controller
         return view('admin-panel.register');
     }
 
-    public function viewAddPostPage()
+    public function addPostPage()
     {
         return view('admin-panel.add_post');
     }

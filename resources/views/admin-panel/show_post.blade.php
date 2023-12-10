@@ -1,6 +1,6 @@
 @extends('admin-panel.layouts.main')
 
-    @section('forms')
+    @section('show_post')
     <div class="d-flex align-items-stretch">
 
       @include('admin-panel.layouts.sidebar')

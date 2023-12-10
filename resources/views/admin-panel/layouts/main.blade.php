@@ -6,7 +6,7 @@
     @yield('adminhome')
     @yield('charts')
     @yield('add_post')
-    @yield('forms')
+    @yield('show_post')
     @yield('script')
     <!--yield section ends here-->
     
