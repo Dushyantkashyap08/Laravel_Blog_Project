@@ -13,6 +13,8 @@
           text-align: center; 
           padding: 30px; 
           color:white;
+          text-decoration:underline;
+          letter-spacing: 5px;
         }
 
         .div_center {

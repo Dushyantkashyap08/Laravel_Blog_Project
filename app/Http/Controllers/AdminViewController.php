@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class AdminViewController extends Controller
 {
@@ -18,7 +19,8 @@ class AdminViewController extends Controller
 
     public function showPostPage()
     {
-        return view('admin-panel.show_post');
+        $post = Post::all();
+        return view('admin-panel.show_post', compact('post'));
     }
 
     public function viewLogin()
