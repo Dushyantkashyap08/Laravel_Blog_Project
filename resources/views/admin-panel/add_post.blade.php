@@ -1,40 +1,4 @@
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        .post_title{
-          font-size:40px; 
-          font-weight: bold; 
-          text-align: center; 
-          padding: 30px; 
-          color:white;
-          text-decoration:underline;
-          letter-spacing: 5px;
-        }
-
-        .div_center {
-          text-align: center;
-          padding: 30px;
-        }
-        
-        label{
-          display:inline-block;
-          width:200px;
-        }
-
-        .div_img{
-          margin-left: 130px;
-        }
-
-    </style>
-  </head>
-  <body>
-  @extends('admin-panel.layouts.main')
+@extends('admin-panel.layouts.main')
   
       @section('add_post')
       <div class="d-flex align-items-stretch">
@@ -56,36 +20,35 @@
               {{session('error')}}
             </div> 
           @endif
-          
-          <h1 class="post_title">Add Post</h1>
-          
-            <div>
-  
-                <form action="{{url('add_post')}}" method="post" enctype="multipart/form-data">
-                  @csrf
-                    <div class="div_center">
-                      <label>Post Title</label>
-                      <input type="text" name="title" />
-                    </div>
-  
-                    <div class="div_center">
-                      <label>Post Decription</label>
-                      <textarea name="description"></textarea>
-                    </div>
-  
-                    <div class="div_center div_img">
-                      <label>Add Image</label>
-                      <input type="file" name="image" />
-                    </div>
-  
-                    <div class="div_center ">
-                      <input type="submit" class="btn btn-primary" />
-                    </div>
-                    
-                </form>
-  
-            </div>
-  
+
+               <div class="col-lg-6" style="margin:auto; position:relative; top:100px;">
+                 <div class="block">
+                   <h1 class="post_title" style="font-size:40px; font-weight: bold; text-align: center; padding: 30px; color:white; letter-spacing: 5px;">Add Post</h1>
+                   <div class="block-body">
+                     <form action="{{url('add_post')}}" method="post" enctype="multipart/form-data">
+                       @csrf
+                       <div class="form-group">
+                         <label class="form-control-label">Post Title</label>
+                         <input type="text" name="title" placeholder="enter title" class="form-control">
+                       </div>
+                       <br>
+                       <div class="form-group">
+                         <label class="form-control-label">Post Descriptiton</label>
+                         <textarea name="description" class="form-control" placeholder="enter description"></textarea>
+                       </div>
+                       <br>
+                       <div class="form-group">
+                         <label class="form-control-label">Add Image</label>
+                         <input type="file" placeholder="add image" name="image" class="form-control">
+                       </div>
+                       <br>
+                       <div class="form-group">       
+                         <input type="submit" value="Post" class="btn btn-primary">
+                       </div>
+                     </form>
+                   </div>
+                 </div>
+                </div>   
         </div>
       </div>
   @endsection
@@ -102,6 +65,3 @@
   <script src="admin-template/js/front.js"></script>
   <!-- JavaScript files ends here-->
   @endsection
-  
-</body>
-</html>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class BlogViewController extends Controller
 {
@@ -16,9 +17,10 @@ class BlogViewController extends Controller
         return view('blog.contact');
     }
 
-    public function viewServices()
+    public function viewBlogPosts()
     {
-        return view('blog.services');
+        $post = Post::all();
+        return view('blog.blog_posts',compact('post'));
     }
 
     public function viewAbout()

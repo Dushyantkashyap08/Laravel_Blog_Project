@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[BlogViewController::class,'viewHomepage']);
 Route::get('/contact',[BlogViewController::class,'viewContact']);
-Route::get('/services',[BlogViewController::class,'viewServices']);
+Route::get('/blogposts',[BlogViewController::class,'viewBlogPosts']);
 Route::get('/about',[BlogViewController::class,'viewAbout']);
 Route::get('/blog',[BlogViewController::class,'viewBlog']);
 
@@ -38,7 +38,12 @@ Route::get('/register',[AdminViewController::class,'viewRegister']);
 Route::get('/add_post',[AdminViewController::class,'addPostPage']);
 
 
-Route::post('/add_post',[AdminPanelController::class,'add_post']);
+Route::post('/add_post',[AdminPanelController::class,'addPost']);
+Route::get('/delete_post/{id}',[AdminPanelController::class,'deletePost']);
+Route::get('/post_details/{id}',[AdminPanelController::class,'postDetails']);
+Route::get('/user_post',[AdminPanelController::class,'userPost'])->middleware('auth');
+Route::get('/my_posts',[AdminPanelController::class,'myPosts'])->middleware('auth');
+Route::post('/create_post',[AdminPanelController::class,'userCreatePost'])->middleware('auth');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

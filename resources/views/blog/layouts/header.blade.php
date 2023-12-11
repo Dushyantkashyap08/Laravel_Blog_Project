@@ -14,15 +14,15 @@
       <meta name="description" content="">
       <meta name="author" content="">
       <!-- bootstrap css -->
-      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
       <!-- style css -->
-      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
       <!-- Responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
+      <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
       <!-- fevicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <link rel="icon" href="{{asset('images/fevicon.png')}}" type="image/gif" />
       <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <link rel="stylesheet" href="{{asset('css/jquery.mCustomScrollbar.min.css')}}">
       <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
       <!-- fonts -->
@@ -39,7 +39,7 @@
         <div class="header_main">
             <div class="mobile_menu">
                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                  <div class="logo_mobile"><a href="index.html"><img src="images/blogger.png" style="margin:auto"></a></div>
+                 <div class="logo_mobile"><a href="{{url('/')}}"><img src="{{asset('images/blogger.png')}}" style="margin:auto"></a></div>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                   </button>
@@ -52,30 +52,42 @@
                            <a class="nav-link" href="{{url('about')}}">About</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="services.html">Services</a>
+                           <a class="nav-link" href="{{url('blogposts')}}">Posts</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link " href="{{url('blog')}}">Blog</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link " href="contact.html">Contact</a>
+                           <a class="nav-link " href="{{url('contact')}}">Contact</a>
                         </li>
                      </ul>
                   </div>
                </nav>
             </div>
             <div class="container-fluid">
-               <div class="logo" style="background:white; width:100%; height:140px; "><a href="{{url('/')}}"><img src="images/blogger.png" style="margin:auto; height:120px; position:relative; top:-10px; width:250px"></a></div>
+               <div class="logo" style="width:100%; height:140px; "><a href="{{url('/')}}"><img src="{{asset('images/blogger.png')}}" style="margin:auto; height:120px; position:relative; top:-10px; width:250px"></a></div>
                <div class="menu_main">
                   <ul>
                      <li class="active"><a href="{{url('/')}}">Home</a></li>
                      <li><a href="{{url('about')}}">About</a></li>
                      <li><a href="{{url('blog')}}">Blog</a></li>
+                     <li><a href="{{url('blogposts')}}">Posts</a></li>
+                     <li><a href="{{url('contact')}}">Contact</a></li>
 
                      @if(Route::has('login'))
                      
                         @auth
-                            <li><x-app-layout></x-app-layout></li>
+                            <li>
+                              <x-app-layout></x-app-layout>
+                           </li>
+
+                           <li>
+                              <a href="{{url('user_post')}}">Create Post</a>
+                           </li>
+
+                           <li>
+                              <a href="{{url('my_posts')}}">My Posts</a>
+                           </li>
 
                             @else
                             <li><a href="{{route('login')}}">Login</a></li>
@@ -91,34 +103,6 @@
                </div>
             </div>
          </div>
-         <!-- banner section start -->
-         <div class="banner_section layout_padding">
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-               <div class="carousel-inner">
-                  <div class="carousel-item active">
-                     <div class="container">
-                        <h1 class="banner_taital">Adventure</h1>
-                        <p class="banner_text">There are many variations of passages of Lorem Ipsum available, but the majority have sufferedThere are ma available, but the majority have suffered</p>
-                        <div class="read_bt"><a href="#">Get A Quote</a></div>
-                     </div>
-                  </div>
-                  <div class="carousel-item">
-                     <div class="container">
-                        <h1 class="banner_taital">Adventure</h1>
-                        <p class="banner_text">There are many variations of passages of Lorem Ipsum available, but the majority have sufferedThere are ma available, but the majority have suffered</p>
-                        <div class="read_bt"><a href="#">Get A Quote</a></div>
-                     </div>
-                  </div>
-                  <div class="carousel-item">
-                     <div class="container">
-                        <h1 class="banner_taital">Adventure</h1>
-                        <p class="banner_text">There are many variations of passages of Lorem Ipsum available, but the majority have sufferedThere are ma available, but the majority have suffered</p>
-                        <div class="read_bt"><a href="#">Get A Quote</a></div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- banner section end -->
+         
       </div>
       <!-- header section end -->

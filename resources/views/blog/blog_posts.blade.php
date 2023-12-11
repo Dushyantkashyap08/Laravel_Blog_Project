@@ -1,26 +1,24 @@
 <!--extending layouts.main here-->
 @extends('blog.layouts.main')
 
-@section('services')
+@section('blog_posts')
       <!-- services section start -->
       <div class="services_section layout_padding">
          <div class="container">
-            <h1 class="services_taital">Services </h1>
-            <p class="services_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration</p>
+            <h1 class="services_taital" align="center">Blog Posts</h1>
             <div class="services_section_2">
                <div class="row">
-                  <div class="col-md-4">
-                     <div><img src="images/img-1.png" class="services_img"></div>
-                     <div class="btn_main"><a href="#">Rafting</a></div>
-                  </div>
-                  <div class="col-md-4">
-                     <div><img src="images/img-2.png" class="services_img"></div>
-                     <div class="btn_main active"><a href="#">Hiking</a></div>
-                  </div>
-                  <div class="col-md-4">
-                     <div><img src="images/img-3.png" class="services_img"></div>
-                     <div class="btn_main"><a href="#">Camping</a></div>
-                  </div>
+
+                  @foreach($post as $posts)
+
+                     <div class="col-md-4">
+                        <div><img src="UploadedImages/{{$posts->image}}" class="services_img" style="height:300px ; width:400px;"></div>
+                        <h4>{{$posts->title}}</h4>
+                        <p>post By <strong>{{$posts->name}}</strong></p>
+                        <div class="btn_main"><a href="{{url('post_details',$posts->id)}}">Read More</a></div>
+                     </div>
+
+                  @endforeach
                </div>
             </div>
          </div>
