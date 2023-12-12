@@ -5,8 +5,6 @@
 
     <!--yield section starts here-->
     @yield('homepage')
-    @yield('blog_posts')
-    @yield('blog')
     @yield('post_details')
     @yield('user_post')
     @yield('my_posts')

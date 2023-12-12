@@ -7,9 +7,9 @@ use App\Models\Post;
 
 class AdminViewController extends Controller
 {
-    public function viewHomepage()
+    public function viewDashboard()
     {
-        return view('admin-panel.adminhome');
+        return view('admin-panel.dashboard');
     }
 
     public function viewCharts()
@@ -19,7 +19,7 @@ class AdminViewController extends Controller
 
     public function showPostPage()
     {
-        $post = Post::all();
+        $post = Post::paginate(2);
         return view('admin-panel.show_post', compact('post'));
     }
 

@@ -44,9 +44,9 @@
       .all_post_table {
         border: 1px solid white;
         font-size:20px;
-        width: 80%;
+        width: 90%;
         text-align: center;
-        margin-left: 150px;
+        margin-left: 70px;
       }
 
       .head_row {
@@ -58,7 +58,14 @@
         width: 150px;
         padding: 30px;
       }
-  </style>
+    .all_post_table th,
+    .all_post_table td {
+        padding: 15px;
+        border: 1px solid #ddd; /* Add a border to each cell */
+    }
+
+</style>
+
 </head>
 <body>
   @extends('admin-panel.layouts.main')
@@ -90,22 +97,25 @@
                 </tr>
                
                 @foreach($post as $posts)
-
                 <tr>
-                  <td>{{$posts->title}}</td>
-                  <td>{{$posts->description}}</td>
-                  <td>{{$posts->name}}</td>
-                  <td>{{$posts->status}}</td>
-                  <td>{{$posts->usertype}}</td>
-                  <td>
-                    <img class="post_img" src="UploadedImages/{{$posts->image}}">
-                  </td>
-                  <td><a href="{{url('delete_post',$posts->id)}}" class="btn btn-danger" onclick="confirmation(event)">Delete</a></td>
+                    <td>{{$posts->title}}</td>
+                    <td>{{ \Illuminate\Support\Str::limit($posts->description, $limit = 40, $end = '...') }}</td>
+                    <td>{{$posts->name}}</td>
+                    <td>{{$posts->post_status}}</td>
+                    <td>{{$posts->usertype}}</td>
+                    <td>
+                        <img class="post_img" src="UploadedImages/{{$posts->image}}">
+                    </td>
+                    <td><a href="{{url('delete_post',$posts->id)}}" class="btn btn-danger" onclick="confirmation(event)">Delete</a></td>
                 </tr>
-
                 @endforeach
-              </table>
+                <tr>
+                  <td colspan="7">
+                    {{$post->links('pagination::bootstrap-5')}}
 
+                  </td>
+                </tr>
+              </table>
         </div>
       </div>
   @endsection

@@ -25,12 +25,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[BlogViewController::class,'viewHomepage']);
 Route::get('/contact',[BlogViewController::class,'viewContact']);
-Route::get('/blogposts',[BlogViewController::class,'viewBlogPosts']);
 Route::get('/about',[BlogViewController::class,'viewAbout']);
-Route::get('/blog',[BlogViewController::class,'viewBlog']);
 
 
-Route::get('/home',[AdminViewController::class,'viewHomepage']);
+Route::get('/home',[AdminViewController::class,'viewDashboard']);
 Route::get('/charts',[AdminViewController::class,'viewCharts']);
 Route::get('/show_post',[AdminViewController::class,'showPostPage']);
 Route::get('/login',[AdminViewController::class,'viewLogin']);

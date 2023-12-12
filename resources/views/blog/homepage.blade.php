@@ -5,56 +5,25 @@
       <!-- services section start -->
       <div class="services_section layout_padding">
          <div class="container">
-            <h1 class="services_taital">Services </h1>
+            <h1 class="services_taital" style="text-align: center;">BLOGS</h1>
             <p class="services_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration</p>
             <div class="services_section_2">
                <div class="row">
-                  <div class="col-md-4">
-                     <div><img src="images/img-1.png" class="services_img"></div>
-                     <div class="btn_main"><a href="#">Rafting</a></div>
-                  </div>
-                  <div class="col-md-4">
-                     <div><img src="images/img-2.png" class="services_img"></div>
-                     <div class="btn_main active"><a href="#">Hiking</a></div>
-                  </div>
-                  <div class="col-md-4">
-                     <div><img src="images/img-3.png" class="services_img"></div>
-                     <div class="btn_main"><a href="#">Camping</a></div>
-                  </div>
+                  @foreach($post as $posts)
+                     <div class="col-md-4">
+                        {{-- <div><img src="images/img-1.png" class="services_img"></div>
+                        <div class="btn_main"><a href="#">Rafting</a></div> --}}
+                        <div><img src="UploadedImages/{{$posts->image}}" class="services_img" style="height:370px ; width:420px; border-radius:30px"></div>
+                        <h4>{{$posts->title}}</h4>
+                        <p>post By <strong>{{$posts->name}}</strong></p>
+                        <div class="btn_main"><a href="{{url('post_details',$posts->id)}}" style="margin-bottom:30px;">Read More</a></div>
+                     </div>
+                  @endforeach
                </div>
             </div>
          </div>
       </div>
-      <!-- services section end -->
-      <!-- about section start -->
-      <div class="about_section layout_padding">
-         <div class="container-fluid">
-            <div class="row">
-               <div class="col-md-6">
-                  <div class="about_taital_main">
-                     <h1 class="about_taital">About Us</h1>
-                     <p class="about_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All </p>
-                     <div class="readmore_bt"><a href="#">Read More</a></div>
-                  </div>
-               </div>
-               <div class="col-md-6 padding_right_0">
-                  <div><img src="images/about-img.png" class="about_img"></div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- about section end -->
-      <!-- blog section start -->
-      <div class="blog_section layout_padding">
-         <div class="container">
-            <h1 class="blog_taital">See Our  Video</h1>
-            <p class="blog_text">many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which</p>
-            <div class="play_icon_main">
-               <div class="play_icon"><a href="#"><img src="images/play-icon.png"></a></div>
-            </div>
-         </div>
-      </div>
-      <!-- blog section end -->
+      
       <!-- client section start -->
       <div class="client_section layout_padding">
          <div class="container">

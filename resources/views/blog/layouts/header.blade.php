@@ -32,6 +32,7 @@
       <link rel="stylesheet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <!--css ends here-->
+
    </head>
    <body>
       <!-- header section start -->
@@ -39,7 +40,11 @@
         <div class="header_main">
             <div class="mobile_menu">
                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                 <div class="logo_mobile"><a href="{{url('/')}}"><img src="{{asset('images/blogger.png')}}" style="margin:auto"></a></div>
+                 <div class="logo_mobile">
+                     <a href="{{url('/')}}">
+                        <img src="{{asset('images/blogger.png')}}" style="margin:auto">
+                     </a>
+                  </div>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                   </button>
@@ -50,12 +55,6 @@
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" href="{{url('about')}}">About</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="{{url('blogposts')}}">Posts</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link " href="{{url('blog')}}">Blog</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link " href="{{url('contact')}}">Contact</a>
@@ -70,8 +69,6 @@
                   <ul>
                      <li class="active"><a href="{{url('/')}}">Home</a></li>
                      <li><a href="{{url('about')}}">About</a></li>
-                     <li><a href="{{url('blog')}}">Blog</a></li>
-                     <li><a href="{{url('blogposts')}}">Posts</a></li>
                      <li><a href="{{url('contact')}}">Contact</a></li>
 
                      @if(Route::has('login'))

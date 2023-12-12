@@ -3,7 +3,7 @@
 <!--layouts.header ends here-->
 
     <!--yield section starts here-->
-    @yield('adminhome')
+    @yield('dashboard')
     @yield('charts')
     @yield('add_post')
     @yield('show_post')

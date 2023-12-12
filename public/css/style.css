@@ -949,7 +949,7 @@ button {
 .social_icon {
     width: 100%;
     margin: 0 auto;
-    text-align: center;
+
 }
 
 .social_icon ul {
@@ -961,7 +961,7 @@ button {
 
 .social_icon li {
     float: left;
-    padding: 30px 5px;
+    padding: 40px 5px;
 }
 
 .location_main {
@@ -972,18 +972,32 @@ button {
 }
 
 .call_text {
-    width: 100%;
-    float: left;
+    /* width: 100%; */
+    float: right;
     font-size: 16px;
     color: #ffffff;
-    padding-top: 10px
+    padding-top: 10px;
+    position:relative;
+    top:20px;
+    right:-100px;
 }
 
-.call_text a {
+.call_mail {
+    /* width: 100%; */
+    float: right;
+    font-size: 16px;
+    color: #ffffff;
+    position:relative;
+    top:50px;
+    right:53px;
+
+}
+
+.call_text .call_mail a {
     color: #ffffff;
 }
 
-.call_text a:hover {
+.call_text .call_mail a:hover {
     color: #e27141;
 }
 
@@ -994,7 +1008,9 @@ button {
     width: 100%;
     float: left;
     background-color: #122c2d;
-    height: auto;
+    height: 100px;
+    position: relative;
+    top:70px;
 }
 
 .copyright_text {
@@ -1003,7 +1019,8 @@ button {
     color: #ffffff;
     text-align: center;
     font-size: 16px;
-    margin-left: 0px;
+    top:70px;
+    position:relative;
 }
 
 .copyright_text a {
