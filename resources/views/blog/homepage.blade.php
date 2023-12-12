@@ -1,3 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+   
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+   
+
+
 <!--extending layouts.main here-->
 @extends('blog.layouts.main')
 
@@ -5,18 +23,45 @@
       <!-- services section start -->
       <div class="services_section layout_padding">
          <div class="container">
-            <h1 class="services_taital" style="text-align: center;">BLOGS</h1>
-            <p class="services_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration</p>
+            <h1 class="services_taital" style="text-align: center; font-size:100px;">BLOGS</h1>
+            
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width: 100%">
+               <div class="carousel-inner">
+                   <div class="carousel-item active">
+                       <img src="UploadedImages/1702398402.png" class="d-block w-100" alt="Image 1" style="height:600px; width:100%;">
+                   </div>
+                   <div class="carousel-item">
+                       <img src="UploadedImages/1702318058.png" class="d-block w-100" alt="Image 2" style="height:600px; width:100%;">
+                   </div>
+                   <div class="carousel-item">
+                       <img src="UploadedImages/1702325483.png" class="d-block w-100" alt="Image 3" style="height:600px; width:100%;">
+                   </div>
+
+                   <div class="carousel-item">
+                       <img src="UploadedImages/1702400097.png" class="d-block w-100" alt="Image 4" style="height:600px; width:100%;">
+                   </div>
+               </div>
+               <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                   <span class="sr-only">Previous</span>
+               </a>
+               <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                   <span class="sr-only">Next</span>
+               </a>
+           </div>
+           <br>
+
+           <h1>Trending Now..</h1>
+         
             <div class="services_section_2">
                <div class="row">
                   @foreach($post as $posts)
                      <div class="col-md-4">
-                        {{-- <div><img src="images/img-1.png" class="services_img"></div>
-                        <div class="btn_main"><a href="#">Rafting</a></div> --}}
                         <div><img src="UploadedImages/{{$posts->image}}" class="services_img" style="height:370px ; width:420px; border-radius:30px"></div>
                         <h4>{{$posts->title}}</h4>
-                        <p>post By <strong>{{$posts->name}}</strong></p>
-                        <div class="btn_main"><a href="{{url('post_details',$posts->id)}}" style="margin-bottom:30px;">Read More</a></div>
+                        <p>Post by <strong>{{$posts->name}}</strong></p>
+                        <div class="btn_main" style=";"><a href="{{url('post_details',$posts->id)}}" style="margin-top:-5px; margin-bottom: 40px">Read More</a></div>
                      </div>
                   @endforeach
                </div>
@@ -115,6 +160,10 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery-3.0.0.min.js"></script>
     <script src="js/plugin.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- sidebar -->
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/custom.js"></script>
@@ -123,3 +172,6 @@
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>    
     <!-- script ends here-->
  @endsection
+
+</body>
+</html>

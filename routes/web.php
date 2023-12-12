@@ -41,6 +41,9 @@ Route::get('/delete_post/{id}',[AdminPanelController::class,'deletePost']);
 Route::get('/post_details/{id}',[AdminPanelController::class,'postDetails']);
 Route::get('/user_post',[AdminPanelController::class,'userPost'])->middleware('auth');
 Route::get('/my_posts',[AdminPanelController::class,'myPosts'])->middleware('auth');
+Route::get('/my_post_del',[AdminPanelController::class,'myPostDel'])->middleware('auth');
+Route::get('/accept_post/{id}',[AdminPanelController::class,'acceptPost'])->middleware('auth');
+Route::get('/reject_post/{id}',[AdminPanelController::class,'rejectPost'])->middleware('auth');
 Route::post('/create_post',[AdminPanelController::class,'userCreatePost'])->middleware('auth');
 
 // Route::get('/dashboard', function () {

@@ -74,17 +74,24 @@
       <div class="d-flex align-items-stretch">
   
         @include('admin-panel.layouts.sidebar')
+
         
         <div class="page-content">
-
+          
+          <h1 class="all_posts">All Posts</h1>
+          
           @if(session()->has('success'))
-            <div class="alert alert-danger">
-              <button type="button" class="close" data-dismiss="alert" aria-hideen="true">x</button>
-              {{session()->get('success')}}
-            </div>      
-          @endif
-              <h1 class="all_posts">All Posts</h1>
-
+          <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hideen="true">x</button>
+            {{session()->get('success')}}
+          </div>      
+        @endif
+          @if(session()->has('error'))
+          <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-hideen="true">x</button>
+            {{session()->get('error')}}
+          </div>      
+        @endif
               <table class="all_post_table">
                 <tr class="head_row">
                   <th>Title</th>
@@ -94,6 +101,7 @@
                   <th>Usertype</th>
                   <th>Image</th>
                   <th>Delete</th>
+                  <th colspan="2">Permissions</th>
                 </tr>
                
                 @foreach($post as $posts)
@@ -106,11 +114,13 @@
                     <td>
                         <img class="post_img" src="UploadedImages/{{$posts->image}}">
                     </td>
-                    <td><a href="{{url('delete_post',$posts->id)}}" class="btn btn-danger" onclick="confirmation(event)">Delete</a></td>
+                    <td><a href="{{url('delete_post',$posts->id)}}" onclick="confirmation(event)"><svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 448 512"><path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg></a></td>
+                    <td><a href="{{url('accept_post',$posts->id)}}" class="btn btn-success" style="margin-bottom:20px;">Accept</a>
+                    <a href="{{url('reject_post',$posts->id)}}" class="btn btn-outline-secondary" style="background-color: brown">Reject</a></td>
                 </tr>
                 @endforeach
                 <tr>
-                  <td colspan="7">
+                  <td colspan="8">
                     {{$post->links('pagination::bootstrap-5')}}
 
                   </td>

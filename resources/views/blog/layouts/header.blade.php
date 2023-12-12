@@ -25,6 +25,9 @@
       <link rel="stylesheet" href="{{asset('css/jquery.mCustomScrollbar.min.css')}}">
       <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+      <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
       <!-- fonts -->
       <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Righteous&display=swap" rel="stylesheet">
       <!-- owl stylesheets --> 
@@ -40,11 +43,11 @@
         <div class="header_main">
             <div class="mobile_menu">
                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                 <div class="logo_mobile">
+                  <div class="logo_mobile">
                      <a href="{{url('/')}}">
-                        <img src="{{asset('images/blogger.png')}}" style="margin:auto">
+                         <img src="{{asset('images/blogomatic.png')}}" style="margin:auto">
                      </a>
-                  </div>
+                 </div>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                   </button>
@@ -64,7 +67,7 @@
                </nav>
             </div>
             <div class="container-fluid">
-               <div class="logo" style="width:100%; height:140px; "><a href="{{url('/')}}"><img src="{{asset('images/blogger.png')}}" style="margin:auto; height:120px; position:relative; top:-10px; width:250px"></a></div>
+               <div class="logo" style="width:100%; height:140px; "><a href="{{url('/')}}"><img src="{{asset('images/blogomatic.png')}}" style="margin:auto; height:120px; position:relative; top:-10px; width:300px"></a></div>
                <div class="menu_main">
                   <ul>
                      <li class="active"><a href="{{url('/')}}">Home</a></li>
@@ -74,18 +77,18 @@
                      @if(Route::has('login'))
                      
                         @auth
-                            <li>
-                              <x-app-layout></x-app-layout>
-                           </li>
-
-                           <li>
-                              <a href="{{url('user_post')}}">Create Post</a>
-                           </li>
-
-                           <li>
-                              <a href="{{url('my_posts')}}">My Posts</a>
-                           </li>
-
+                        
+                        <li>
+                           <a href="{{url('user_post')}}">Create Post</a>
+                        </li>
+                        
+                        <li>
+                           <a href="{{url('my_posts')}}">My Posts</a>
+                        </li>
+                        
+                        <li>
+                          <x-app-layout></x-app-layout>
+                       </li>
                             @else
                             <li><a href="{{route('login')}}">Login</a></li>
 

@@ -59,6 +59,13 @@ class AdminPanelController extends Controller
         return redirect()->back()->with('success', 'Post successfully deleted.');
     }
 
+    public function myPostDel($id){
+        $post = Post::find($id);
+        $post->delete();
+
+        return redirect()->back()->with('success', 'Post successfully deleted.');
+    }
+
     public function postDetails($id){
         $post = Post::find($id);
         return view('blog.post_details',compact('post'));
@@ -77,6 +84,13 @@ class AdminPanelController extends Controller
     }
 
     public function userCreatePost(Request $request){
+
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg',
+        ]);
+        
 
         $user = Auth()->user();
         $userid = $user->id;
@@ -114,5 +128,19 @@ class AdminPanelController extends Controller
 
             return redirect()->back()->with('success', 'Post successfully added.');
         }
+    }
+
+    public function acceptPost($id){
+        $data = Post::find($id);
+        $data->post_status = 'active';
+        $data->save();
+        return redirect()->back()->with('success', 'Post is Accepted now');
+    }
+
+    public function rejectPost($id){
+        $data = Post::find($id);
+        $data->post_status = 'rejected';
+        $data->save();
+        return redirect()->back()->with('error', 'Post is Rejected now.');
     }
 }
