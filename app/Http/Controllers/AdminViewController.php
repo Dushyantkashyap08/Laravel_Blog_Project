@@ -37,4 +37,8 @@ class AdminViewController extends Controller
     {
         return view('admin-panel.add_post');
     }
+    public function viewComments()
+    {
+        return view('admin-panel.comments');
+    }
 }

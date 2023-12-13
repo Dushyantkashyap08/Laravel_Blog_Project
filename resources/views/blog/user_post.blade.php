@@ -13,17 +13,17 @@
                     @csrf
                     <div class="form-group">
                         <label class="form-control-label">Post Title</label>
-                        <input type="text" required name="title" placeholder="enter title" class="form-control">
+                        <input type="text"  name="title" placeholder="enter title" class="form-control">
                     </div>
                     <br>
                     <div class="form-group">
                         <label class="form-control-label">Post Description</label>
-                        <textarea name="description" required class="form-control form-control-lg" placeholder="enter description"></textarea>
+                        <textarea name="description"  class="form-control form-control-lg" placeholder="enter description"></textarea>
                     </div>
                     <br>
                     <div class="form-group">
                         <label class="form-control-label">Add Image</label>
-                        <input type="file" required placeholder="add image" name="image" class="form-control">
+                        <input type="file"  placeholder="add image" name="image" class="form-control">
                     </div>
                     <br>
                     <div class="form-group">
@@ -41,13 +41,5 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- Other scripts -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/plugin.js"></script>
-    <script src="js/owl.carousel.js"></script>
-    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-    <!-- Your custom scripts here -->
-
     <!-- script ends here-->
 @endsection

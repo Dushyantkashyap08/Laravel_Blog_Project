@@ -34,6 +34,7 @@ Route::get('/show_post',[AdminViewController::class,'showPostPage']);
 Route::get('/login',[AdminViewController::class,'viewLogin']);
 Route::get('/register',[AdminViewController::class,'viewRegister']);
 Route::get('/add_post',[AdminViewController::class,'addPostPage']);
+Route::get('/comments_table',[AdminViewController::class,'viewComments']);
 
 
 Route::post('/add_post',[AdminPanelController::class,'addPost']);
@@ -45,6 +46,8 @@ Route::get('/my_post_del',[AdminPanelController::class,'myPostDel'])->middleware
 Route::get('/accept_post/{id}',[AdminPanelController::class,'acceptPost'])->middleware('auth');
 Route::get('/reject_post/{id}',[AdminPanelController::class,'rejectPost'])->middleware('auth');
 Route::post('/create_post',[AdminPanelController::class,'userCreatePost'])->middleware('auth');
+Route::get('/submit_comment/{id}', [AdminPanelController::class, 'submitComment'])->name('submit_comment');
+
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

@@ -4,7 +4,7 @@
 
     <!--yield section starts here-->
     @yield('dashboard')
-    @yield('charts')
+    @yield('comments')
     @yield('add_post')
     @yield('show_post')
     @yield('script')

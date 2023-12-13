@@ -12,7 +12,7 @@
     <ul class="list-unstyled">
             <li class="active"><a href="{{url('/home')}}"> <i class="icon-home"></i>Home </a></li>
             <li><a href="{{url('add_post')}}"> <i class="icon-grid"></i>Add Post </a></li>
-            <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
+            <li><a href="{{url('comments_table')}}"> <i class="fa fa-bar-chart"></i>Comments</a></li>
             <li><a href="{{url('show_post')}}"> <i class="icon-padnote"></i> Show Post </a></li>
             <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
               <ul id="exampledropdownDropdown" class="collapse list-unstyled ">

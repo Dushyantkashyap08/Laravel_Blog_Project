@@ -4,18 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Comments;
 
-class Post extends Model
+class Comments extends Model
 {
     use HasFactory;
 
-    protected $table = 'posts';
+    protected $table = 'comments';
 
     public $timestamps = false;
 
-    public function comments()
-    {
-        return $this->hasMany(Comments::class);
-    }
+    protected $fillable = ['post_id', 'user_id', 'comment', 'user_name', 'comment_status'];
 }

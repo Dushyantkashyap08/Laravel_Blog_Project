@@ -14,12 +14,6 @@
               {{session()->get('success')}}
             </div>      
           @endif
-  
-          @if(session('error'))
-            <div class="alert alert-danger">
-              {{session('error')}}
-            </div> 
-          @endif
 
                <div class="col-lg-6" style="margin:auto; position:relative; top:100px;">
                  <div class="block">
