@@ -9,7 +9,7 @@ class BlogViewController extends Controller
 {
     public function viewHomepage()
     {
-        $post = Post::where('post_status','=','active')->get();
+        $post = Post::where('post_status','=','active')->inRandomOrder()->limit(6)->get();
         return view('blog.homepage',compact('post'));
     }
 

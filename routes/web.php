@@ -58,4 +58,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// In routes/web.php
+Route::get('/getFullDescription/{id}', 'AdminPanelController@getFullDescription');
+
 require __DIR__.'/auth.php';

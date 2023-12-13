@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Alert;
+use RealRashid\SweetAlert\Facades\Alert as FacadesAlert;
+
 // use App\Models\User;
 
 class AdminPanelController extends Controller
@@ -68,7 +70,9 @@ class AdminPanelController extends Controller
 
     public function postDetails($id){
         $post = Post::find($id);
-        return view('blog.post_details',compact('post'));
+
+        $otherPosts = Post::inRandomOrder()->limit(3)->get();
+        return view('blog.post_details',compact('post','otherPosts'));
     }
 
     public function userPost(){
@@ -79,7 +83,10 @@ class AdminPanelController extends Controller
         $user = Auth::user();
     
         $userid = $user->id;
-        $data = Post::where('user_id','=',$userid)->get();
+        $data = Post::where('post_status', 'active')
+        ->where('user_id', $userid)
+        ->get();
+
         return view('blog.my_posts', compact('data'));
     }
 
@@ -88,16 +95,18 @@ class AdminPanelController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg',
+            'image' => 'required|image|mimes:jpeg,png,jpg', // Max size in kilobytes
         ]);
         
-
+        
         $user = Auth()->user();
         $userid = $user->id;
         $name = $user->name;
         $usertype = $user->usertype;
         //retriving values from user table
-
+        
+        // dd($request->all());
+        // die;
 
         $post = new Post;
 
@@ -124,7 +133,7 @@ class AdminPanelController extends Controller
 
         if($post->save()){
 
-            Alert::success('Congrats','You have added the data successfully');
+            FacadesAlert::success('Congrats','You have added the data successfully');
 
             return redirect()->back()->with('success', 'Post successfully added.');
         }
@@ -143,4 +152,23 @@ class AdminPanelController extends Controller
         $data->save();
         return redirect()->back()->with('error', 'Post is Rejected now.');
     }
+
+   // In your controller
+   public function getFullDescription($id)
+{
+    $post = Post::find($id);
+
+    if ($post) {
+        return response()->json([
+            'description' => $post->description,
+            'button_text' => 'Read Less',
+        ]);
+    } else {
+        return response()->json([
+            'description' => 'Post not found.',
+            'button_text' => 'Learn More',
+        ]);
+    }
+}
+
 }

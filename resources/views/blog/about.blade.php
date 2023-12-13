@@ -37,7 +37,7 @@
  
      <!-- Team Section -->
      <section class="team-section">
-         <div class="container">
+         <div class="container" style="margin-bottom: 30px;">
              <h2 class="display-4 text-center mb-5">Our Team</h2>
              <div class="row">
                  <div class="col-lg-4">

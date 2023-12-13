@@ -13,17 +13,18 @@ class HomeController extends Controller
 
         if(Auth::id())
         {
-            $data['totalUsers'] = Post::where('usertype','=','user')->count();
-            $post = Post:: where('post_status','=','active')->get();
+            $data = User::where('usertype','=','user')->count();
+
+            $post = Post:: all()->count();
             $usertype = Auth()->user()->usertype;
 
             if($usertype == "user")
             {
-                return redirect ('/',compact('post'));
+                return redirect ('/');
             }
             else if($usertype == "admin")
             {
-                return view ('admin-panel.dashboard',compact('data'));
+                return view ('admin-panel.dashboard',compact('data','post'));
             } 
             else
             {

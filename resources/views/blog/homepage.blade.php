@@ -21,7 +21,7 @@
 
 @section('homepage')
       <!-- services section start -->
-      <div class="services_section layout_padding">
+      <div class="services_section layout_padding"  style="margin-bottom : -170px;">
          <div class="container">
             <h1 class="services_taital" style="text-align: center; font-size:100px;">BLOGS</h1>
             
@@ -70,7 +70,7 @@
       </div>
       
       <!-- client section start -->
-      <div class="client_section layout_padding">
+      <div class="client_section layout_padding" style="margin-bottom : -170px;">
          <div class="container">
             <h1 class="client_taital">Testimonial</h1>
             <div class="client_section_2">
@@ -92,7 +92,7 @@
                                  <div class="quick_icon"><img src="images/quick-icon.png"></div>
                               </div>
                               <div class="client_taital_right">
-                                 <h4 class="client_name">Dame</h4>
+                                 <h4 class="client_name">Harbans</h4>
                                  <p class="customer_text">Customer</p>
                               </div>
                            </div>
@@ -109,7 +109,7 @@
                                  <div class="quick_icon"><img src="images/quick-icon.png"></div>
                               </div>
                               <div class="client_taital_right">
-                                 <h4 class="client_name">Dame</h4>
+                                 <h4 class="client_name">Himanshu</h4>
                                  <p class="customer_text">Customer</p>
                               </div>
                            </div>
@@ -126,7 +126,7 @@
                                  <div class="quick_icon"><img src="images/quick-icon.png"></div>
                               </div>
                               <div class="client_taital_right">
-                                 <h4 class="client_name">Dame</h4>
+                                 <h4 class="client_name">Harshit</h4>
                                  <p class="customer_text">Customer</p>
                               </div>
                            </div>
@@ -146,7 +146,7 @@
             <div class="read_bt_1"><a href="#">Read More</a></div>
             <div class="newsletter_box">
                <h1 class="let_text">Let Start Talk with Us</h1>
-               <div class="getquote_bt"><a href="#">Get A Quote</a></div>
+               <div class="getquote_bt"><a href="{{url('/contact')}}">Get A Quote</a></div>
             </div>
          </div>
       </div>
