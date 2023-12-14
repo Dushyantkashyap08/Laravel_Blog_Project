@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
             @foreach($data as $blog)
             <div class="col">
                 <div class="card h-100">
-                    <img src="{{ asset('UploadedImages/'.$blog->image) }}" class="card-img-top" alt="blog image">
+                    <img src="{{ asset('UploadedImages/'.$blog->image) }}" class="card-img-top" alt="blog image" style="height: 400px;">
                     <div class="card-body">
                         <h1 class="card-title" style="font-size:23px;"><b>{{ $blog->title }}</b></h1>
                         <p class="card-text" id="blogDesc{{ $blog->id }}">

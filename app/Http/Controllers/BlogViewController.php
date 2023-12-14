@@ -23,4 +23,7 @@ class BlogViewController extends Controller
         return view('blog.about');
     }
 
+    public function userPost(){
+        return view('blog.user_post');
+    }
 }

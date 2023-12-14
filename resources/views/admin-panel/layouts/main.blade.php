@@ -14,5 +14,3 @@
 @include('admin-panel.layouts.footer')
 <!--layouts.footer ends here-->
     
-    @yield('login')
-    @yield('register')

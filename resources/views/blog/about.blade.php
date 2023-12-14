@@ -2,68 +2,51 @@
 @extends('blog.layouts.main')
 
 @section('about')
-      <!-- about section start -->
-      {{-- <div class="about_section layout_padding">
-         <div class="container-fluid">
-            <div class="row">
-               <div class="col-md-6">
-                  <div class="about_taital_main">
-                     <h1 class="about_taital">About Us</h1>
-                     <p class="about_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All </p>
-                     <div class="readmore_bt"><a href="#">Read More</a></div>
-                  </div>
-               </div>
-               <div class="col-md-6 padding_right_0">
-                  <div><img src="images/about-img.png" class="about_img"></div>
-               </div>
-            </div>
-         </div>
-      </div> --}}
+      
 
-      <section class="about-section">
-         <div class="container">
-             <div class="row">
-                 <div class="col-lg-6">
-                     <h2 class="display-4">About Us</h2>
-                     <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                 </div>
-                 <div class="col-lg-6">
-                     <img src="https://via.placeholder.com/600x400" alt="About Us Image" class="img-fluid rounded">
-                 </div>
-             </div>
-         </div>
-     </section>
- 
-     <!-- Team Section -->
-     <section class="team-section">
-         <div class="container" style="margin-bottom: 30px;">
-             <h2 class="display-4 text-center mb-5">Our Team</h2>
-             <div class="row">
-                 <div class="col-lg-4">
-                     <div class="team-member">
-                         <img src="https://via.placeholder.com/150" alt="Team Member 1" class="img-fluid">
-                         <h3>John Doe</h3>
-                         <p>Co-Founder</p>
-                     </div>
-                 </div>
-                 <div class="col-lg-4">
-                     <div class="team-member">
-                         <img src="https://via.placeholder.com/150" alt="Team Member 2" class="img-fluid">
-                         <h3>Jane Doe</h3>
-                         <p>Lead Developer</p>
-                     </div>
-                 </div>
-                 <div class="col-lg-4">
-                     <div class="team-member">
-                         <img src="https://via.placeholder.com/150" alt="Team Member 3" class="img-fluid">
-                         <h3>Bob Smith</h3>
-                         <p>Designer</p>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </section>
+<section class="about-section py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 d-flex flex-column justify-content-center">
+          <h2 class="display-4 text-primary">About Blogomatic</h2>
+          <p class="lead">Welcome to your one-stop shop for all things trending, educational, and beyond! We're a passionate team driven by curiosity and a love of sharing knowledge. Dive into the latest tech, explore history's mysteries, or get lost in the beauty of words – there's something for everyone.</p>
+          <a href="{{route('register')}}" class="btn btn-primary">Join our community!</a>
+        </div>
+        <div class="col-md-6">
+          <img src="images/team.jpg" alt="Blogomatic Team" class="img-fluid rounded shadow-lg">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="team-section py-5 bg-white">
+    <div class="container">
+      <h2 class="display-4 text-center mb-5">The Masterminds Behind Blogomatic</h2>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="team-member text-center">
+            <img src="images/1.png" alt="John Doe" class="img-fluid rounded-circle mb-3">
+            <h3>John Doe</h3>
+            <p class="text-muted">Co-Founder & Idea Machine</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="team-member text-center">
+            <img src="images/2.jpg" alt="Jane Doe" class="img-fluid rounded-circle mb-3">
+            <h3>Jane Doe</h3>
+            <p class="text-muted">Lead Developer & Digital Sorceress</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="team-member text-center">
+            <img src="images/3.jpg" alt="Bob Smith" class="img-fluid rounded-circle mb-3">
+            <h3>Bob Smith</h3>
+            <p class="text-muted">Designer & Artistic Guru</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
  
      <!-- Bootstrap JS (optional, but recommended for certain features) -->
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -80,6 +63,21 @@
     <!-- sidebar -->
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/custom.js"></script>
+    <style>
+        .about-section {
+        background-color: #f5f5f5;
+        }
+
+        .team-section {
+        background-color: #fff;
+        }
+
+        .team-member {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        }
+    </style>
     <!-- javascript --> 
     <script src="js/owl.carousel.js"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>    

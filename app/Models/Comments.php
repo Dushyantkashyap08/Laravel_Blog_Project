@@ -14,4 +14,9 @@ class Comments extends Model
     public $timestamps = false;
 
     protected $fillable = ['post_id', 'user_id', 'comment', 'user_name'];
+
+    public function post()
+    {
+        return $this->belongsTo(Post::class, 'post_id');
+    }
 }

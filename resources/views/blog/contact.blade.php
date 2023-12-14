@@ -68,7 +68,6 @@
         .contact_taital {
             text-align: center;
             color: #333;
-            text-decoration:green wavy underline;
         }
 
         .email_text {

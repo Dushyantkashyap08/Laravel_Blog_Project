@@ -2,26 +2,23 @@
 @extends('blog.layouts.main')
 
 @section('post_details')
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <!-- Form Container -->
-                <div class="card">
-                    <!-- Image at the top -->
-                    <img src="{{ asset('UploadedImages/'.$post->image) }}" class="card-img-top" alt="Image">
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="card p-4 shadow-lg rounded-lg border-0">
+                <img src="{{ asset('UploadedImages/'.$post->image) }}" class="img-fluid rounded-lg w-100 mb-4" alt="Image">
 
-                    <!-- Form Content -->
-                    <div class="card-body">
-                        <!-- Title -->
-                        <h1 class="card-title" style="text-align: center"><b>{{ $post->title }}</b></h1>
+                <div class="card-body">
+                    <h1 class="card-title display-4 fw-bold text-primary mb-3">{{ $post->title }}</h1>
 
-                        <!-- Short Description -->
-                        <p class="card-text">{{ $post->description }}</p>
-                    </div>
+                    <p class="card-text lead mb-4">{{ $post->description }}</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
 
     @if(session()->has('success'))
       <div class="alert alert-success">

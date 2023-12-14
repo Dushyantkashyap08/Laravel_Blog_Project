@@ -6,6 +6,7 @@ use App\Http\Controllers\BlogViewController;
 use App\Http\Controllers\AdminViewController;
 use App\Http\Controllers\AdminPanelController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,11 +22,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/',[BlogViewController::class,'viewHomepage']);
-    Route::get('/contact',[BlogViewController::class,'viewContact']);
-    Route::get('/about',[BlogViewController::class,'viewAbout']);
-});
+
+  Route::get('/',[BlogViewController::class,'viewHomepage']);
+  Route::get('/contact',[BlogViewController::class,'viewContact']);
+  Route::get('/about',[BlogViewController::class,'viewAbout']);
+  Route::get('/user_post',[BlogViewController::class,'userPost'])->middleware('auth');
 
 
 
@@ -38,29 +39,32 @@ Route::get('/add_post',[AdminViewController::class,'addPostPage']);
 Route::get('/comments_table',[AdminViewController::class,'viewComments']);
 
 
-Route::middleware(['auth'])->group(function () {
+// Route::middleware(['auth'])->group(function () {
    
     Route::post('/add_post',[AdminPanelController::class,'addPost']);
     Route::get('/delete_post/{id}',[AdminPanelController::class,'deletePost']);
-    Route::get('/post_details/{id}',[AdminPanelController::class,'postDetails']);
-    Route::get('/user_post',[AdminPanelController::class,'userPost'])->middleware('auth');
-    Route::get('/my_posts',[AdminPanelController::class,'myPosts'])->middleware('auth');
-    Route::get('/my_post_del',[AdminPanelController::class,'myPostDel'])->middleware('auth');
     Route::get('/accept_post/{id}',[AdminPanelController::class,'acceptPost'])->middleware('auth');
     Route::get('/reject_post/{id}',[AdminPanelController::class,'rejectPost'])->middleware('auth');
-    Route::post('/create_post',[AdminPanelController::class,'userCreatePost'])->middleware('auth');
-    Route::get('/submit_comment/{id}', [AdminPanelController::class, 'submitComment'])->name('submit_comment');
     Route::get('/delete_comment/{id}', [AdminPanelController::class, 'deleteComment'])->name('delete_comment');
+    // });
+    
     Route::post('/send_mail', [MailController::class, 'sendMail'])->name('send_mail');
-});
+    
+    Route::get('/post_details/{id}',[BlogController::class,'postDetails']);//b
+    Route::get('/submit_comment/{id}', [BlogController::class, 'submitComment'])->name('submit_comment');//b
+    Route::post('/create_post',[BlogController::class,'userCreatePost'])->middleware('auth');//b
+    Route::get('/my_post_del',[BlogController::class,'myPostDel'])->middleware('auth');//b
+    Route::get('/my_posts',[BlogController::class,'myPosts'])->middleware('auth');//b
 
 
-Route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('home');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
+    Route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('home');
+    
+    Route::middleware('auth')->group(function () {
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';

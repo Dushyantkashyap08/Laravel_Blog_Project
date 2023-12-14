@@ -37,7 +37,7 @@
                     <div class="title">
                       <div class="icon"><i class="icon-contract"></i></div><strong>All Posts</strong>
                     </div>
-                    <div class="number dashtext-2">{{$post}}</div>
+                    <div class="number dashtext-2">{{$postCount}}</div>
                   </div>
                   <div class="progress progress-template">
                     <div role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-2"></div>
@@ -54,9 +54,9 @@
                   </div>
                   <!-- Add your recent comments content here -->
                   
-                  <ul>
+                  
                     
-                    @foreach($comments as $comment)
+                    {{-- @foreach($comments as $comment)
                       <li>{{$comment->comment}}
                         <ul>
                           @foreach($post_title as $title)
@@ -64,28 +64,29 @@
                           @endforeach
                         </ul>
                       </li>
+                    @endforeach --}}
+                    {{-- <ul>
+                    @foreach($commentsWithPostTitles as $comment)
+                      <li>
+                        {{$comment}}
+                      </li>
                     @endforeach
-                    
-                  </ul>
+                    </ul> --}}
+                  
+                    {{-- <ul>
+                      @foreach($commentsWithPostTitles as $commentData)
+                          <li>
+                              Comment: {{ $commentData['comment'] }}<br>
+                              Post Title: {{ $commentData['title'] }}
+                          </li>
+                      @endforeach
+                  </ul> --}}
+                  
+                
                 </div>
               </div>
               <!--new comments ends here -->
 
-              <!--new likes-->
-              {{-- <div class="col-md-3 col-sm-6">
-                <div class="statistic-block block">
-                  <div class="progress-details d-flex align-items-end justify-content-between">
-                    <div class="title">
-                      <div class="icon"><i class="icon-writing-whiteboard"></i></div><strong>New Likes</strong>
-                    </div>
-                    <div class="number dashtext-4">41</div>
-                  </div>
-                  <div class="progress progress-template">
-                    <div role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-4"></div>
-                  </div>
-                </div>
-              </div> --}}
-              <!--new likes ends here -->
             </div>
           </div>
           {{-- @endforeach --}}
