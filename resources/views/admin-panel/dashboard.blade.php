@@ -56,23 +56,16 @@
                   
                   <ul>
                     
-                      <li>Comment 1
+                    @foreach($comments as $comment)
+                      <li>{{$comment->comment}}
                         <ul>
-                          <li>post title</li>
+                          @foreach($post_title as $title)
+                          <li>{{$title->title}}</li>
+                          @endforeach
                         </ul>
                       </li>
-                      <li>Comment 2
-                        <ul>
-                          <li>post title</li>
-                        </ul>
-                      </li>
-                      <li>Comment 3
-                        <ul>
-                          <li>post title</li>
-                        </ul>
-                      </li>
-                     
-
+                    @endforeach
+                    
                   </ul>
                 </div>
               </div>

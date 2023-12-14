@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Comments;
 
 class AdminViewController extends Controller
 {
@@ -39,6 +40,7 @@ class AdminViewController extends Controller
     }
     public function viewComments()
     {
-        return view('admin-panel.comments');
+        $data = Comments::paginate(5);
+        return view('admin-panel.comments',compact('data'));
     }
 }

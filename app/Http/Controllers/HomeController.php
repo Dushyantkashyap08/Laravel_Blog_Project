@@ -20,15 +20,15 @@ class HomeController extends Controller
             $comments = Comments::latest('comment')->limit(3)->get();
 
 
-            $post_title = Post::select('title');
+            $post_title = Post::where('');
 
-            $usertype = Auth()->user()->usertype;
+            $usertype = auth()->user()->usertype;
 
             if($usertype == "user")
             {
                 return redirect ('/');
             }
-            else if($usertype == "admin")
+            elseif($usertype == "admin")
             {
                 return view ('admin-panel.dashboard',compact('data','post','post_title','comments'));
             } 

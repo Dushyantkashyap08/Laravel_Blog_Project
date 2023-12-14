@@ -68,6 +68,12 @@ class AdminPanelController extends Controller
 
         return redirect()->back()->with('success', 'Post successfully deleted.');
     }
+    public function deleteComment($id){
+        $post = Comments::find($id);
+        $post->delete();
+
+        return redirect()->back()->with('success', 'Comment successfully deleted.');
+    }
     
     public function postDetails($id)
     {
@@ -161,24 +167,6 @@ class AdminPanelController extends Controller
     }
 
    // In your controller
-   public function getFullDescription($id)
-{
-    $post = Post::find($id);
-
-    if ($post) {
-        return response()->json([
-            'description' => $post->description,
-            'button_text' => 'Read Less',
-        ]);
-    } else {
-        return response()->json([
-            'description' => 'Post not found.',
-            'button_text' => 'Learn More',
-        ]);
-    }
-}
-
-
 
 
 public function submitComment(Request $request, $id)
@@ -198,7 +186,6 @@ public function submitComment(Request $request, $id)
     $comment = new Comments();
     $comment->post_id = $id; // Make sure you have the post_id in the form
     $comment->user_id = $user->id;
-    $comment->comment_status = 'pending';
     $comment->comment = $request->input('comment');
     $comment->user_name = $username; // Store the fetched username
     $comment->save();
