@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Contact;
 use App\Models\Post;
 use App\Models\Comments;
+use Alert;
+use RealRashid\SweetAlert\Facades\Alert as FacadesAlert;
 
 class BlogController extends Controller
 {

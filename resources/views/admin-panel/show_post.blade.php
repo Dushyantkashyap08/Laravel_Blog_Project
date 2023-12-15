@@ -31,67 +31,40 @@
     </script>
     
   <title>Document</title>
-  <style>
-      .all_posts{
-          font-size:40px; 
-          font-weight: bold; 
-          text-align: center; 
-          padding: 20px; 
-          color:white;
-          letter-spacing: 5px;
-      }
 
-      .all_post_table {
-        border: 1px solid white;
-        font-size:20px;
-        width: 90%;
-        text-align: center;
-        margin-left: 70px;
-      }
-
-      .head_row {
-        background-color: skyblue;
-      }
-
-      .post_img {
-        height:150px;
-        width: 150px;
-        padding: 30px;
-      }
-    .all_post_table th,
-    .all_post_table td {
-        padding: 15px;
-        border: 1px solid #ddd; /* Add a border to each cell */
-    }
-
-</style>
 
 </head>
 <body>
-  @extends('admin-panel.layouts.main')
+<!--extending layouts.main here-->
+@extends('admin-panel.layouts.main')
   
+ <!--show_post section goes here-->
       @section('show_post')
+      <!--d-flex items goes here-->
       <div class="d-flex align-items-stretch">
   
+        <!--sidebar goes here-->
         @include('admin-panel.layouts.sidebar')
+        <!--sidebar ends here-->
 
-        
+        <!--page-content section goes here-->
         <div class="page-content">
           
-          <h1 class="all_posts">All Posts</h1>
-          
-          @if(session()->has('success'))
-          <div class="alert alert-success">
-            <button type="button" class="close" data-dismiss="alert" aria-hideen="true">x</button>
-            {{session()->get('success')}}
-          </div>      
-        @endif
-          @if(session()->has('error'))
-          <div class="alert alert-danger">
-            <button type="button" class="close" data-dismiss="alert" aria-hideen="true">x</button>
-            {{session()->get('error')}}
-          </div>      
-        @endif
+            <h1 class="all_posts">All Posts</h1>
+            
+            @if(session()->has('success'))
+            <div class="alert alert-success">
+              <button type="button" class="close" data-dismiss="alert" aria-hideen="true">x</button>
+              {{session()->get('success')}}
+            </div>      
+          @endif
+            @if(session()->has('error'))
+            <div class="alert alert-danger">
+              <button type="button" class="close" data-dismiss="alert" aria-hideen="true">x</button>
+              {{session()->get('error')}}
+            </div>      
+          @endif
+          <!--table goes here-->
               <table class="all_post_table">
                 <tr class="head_row">
                   <th>Title</th>
@@ -126,10 +99,15 @@
                   </td>
                 </tr>
               </table>
-        </div>
+               <!--table goes here-->
+          </div>
+          <!--page-content section ends here-->
       </div>
+      <!--d-flex items ends here-->
   @endsection
-  
+ <!--show_post section ends here-->
+
+<!--script section goes here-->
   @section('script')
       <!-- JavaScript files-->
       <script src="admin-template/vendor/jquery/jquery.min.js"></script>
@@ -140,7 +118,40 @@
       <script src="admin-template/vendor/jquery-validation/jquery.validate.min.js"></script>
       <script src="admin-template/js/charts-home.js"></script>
       <script src="admin-template/js/front.js"></script>
-      <!-- JavaScript files ends here-->
-  @endsection
-</body>
-</html>
+    <!--style goes here-->
+    <style>
+        .all_posts{
+            font-size:40px; 
+            font-weight: bold; 
+            text-align: center; 
+            padding: 20px; 
+            color:white;
+            letter-spacing: 5px;
+        }
+  
+        .all_post_table {
+          border: 1px solid white;
+          font-size:20px;
+          width: 90%;
+          text-align: center;
+          margin-left: 70px;
+        }
+  
+        .head_row {
+          background-color: skyblue;
+        }
+  
+        .post_img {
+          height:150px;
+          width: 150px;
+          padding: 30px;
+        }
+      .all_post_table th,
+      .all_post_table td {
+          padding: 15px;
+          border: 1px solid #ddd; /* Add a border to each cell */
+      }
+  </style>
+  <!--style goes here-->
+ @endsection
+<!--script section goes here-->

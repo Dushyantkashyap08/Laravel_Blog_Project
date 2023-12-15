@@ -2,39 +2,45 @@
 @extends('blog.layouts.main')
 
 @section('contact')
-      <!-- contact section start -->
-      <div class="contact_section layout_padding">
-         <div class="container contact_form">
-             <form action="{{url('send_mail')}}" method="post">
-                 @csrf
-                 <h1 class="contact_taital">Request A Call Back</h1>
- 
-                 @if(session()->has('success'))
-                 <div class="alert alert-success">
-                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                     {{session()->get('success')}}
-                 </div>
-                 @endif
-                 <div class="email_text">
-                     <div class="form-group">
-                         <input type="text" class="email-bt" placeholder="Name" name="name" required>
-                     </div>
-                     <div class="form-group">
-                         <input type="email" class="email-bt" placeholder="Email" name="email" required>
-                     </div>
-                     <div class="form-group">
-                         <textarea class="massage-bt" placeholder="Message" rows="5" id="comment" name="message"
-                             required></textarea>
-                     </div>
-                     <div class="send_btn">
-                         <input type="submit" class="btn btn-primary" style="width:100%;" name="save" value="Submit" />
-                     </div>
-                 </div>
-             </form>
-         </div>
-     </div>
-      <!-- contact section end -->
+<!-- Contact Section Start -->
+<div class="contact_section layout_padding">
+    <div class="container contact_form">
+        <!-- form end here -->
+        <form action="{{url('send_mail')}}" method="post">
+            @csrf
+            <h1 class="contact_taital">Request A Call Back</h1>
+
+            <!-- Display Success Message -->
+            @if(session()->has('success'))
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                {{session()->get('success')}}
+            </div>
+            @endif
+
+            <!-- email_text goes here -->
+            <div class="email_text">
+                <div class="form-group">
+                    <input type="text" class="email-bt" placeholder="Name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="email-bt" placeholder="Email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="massage-bt" placeholder="Message" rows="5" id="comment" name="message"
+                        required></textarea>
+                </div>
+                <div class="send_btn">
+                    <input type="submit" class="btn btn-primary" style="width:100%;" name="save" value="Submit" />
+                </div>
+            </div>
+            <!-- email_text end here -->
+        </form>
+        <!-- form end here -->
+    </div>
+</div>
 @endsection
+<!-- Contact Section End -->
 
  @section('script')
       <!-- script section-->
@@ -49,7 +55,6 @@
       <!-- javascript --> 
       <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>    
       <!-- script ends here-->
-
       <style>
 
 .contact_section {

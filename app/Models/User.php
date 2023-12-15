@@ -44,4 +44,9 @@ class User extends Authenticatable
     ];
 
     public $timestamps = null;
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

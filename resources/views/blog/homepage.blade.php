@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
@@ -13,12 +13,13 @@
 
 </head>
 <body>
-   
+    --}}
 
 
 <!--extending layouts.main here-->
 @extends('blog.layouts.main')
 
+<!--homepage starts here-->
 @section('homepage')
       <!-- services section start -->
       <div class="services_section layout_padding"  style="margin-bottom : -170px;">
@@ -58,7 +59,7 @@
                <div class="row">
                   @foreach($post as $posts)
                      <div class="col-md-4">
-                        <div><img src="UploadedImages/{{$posts->image}}" class="services_img" style="height:370px ; width:420px; border-radius:30px"></div>
+                        <div><img src="UploadedImages/{{$posts->image}}" class="services_img" style="height:350px ; width:400px; border-radius:30px"></div>
                         <h4>{{$posts->title}}</h4>
                         <p>Post by <strong>{{$posts->name}}</strong></p>
                         <div class="btn_main" style=";"><a href="{{url('post_details',$posts->id)}}" style="margin-top:-5px; margin-bottom: 40px">Read More</a></div>
@@ -138,6 +139,7 @@
          </div>
       </div>
       <!-- client section start -->
+
       <!-- choose section start -->
       <div class="choose_section layout_padding">
          <div class="container">
@@ -152,13 +154,14 @@
       </div>
       <!-- choose section end -->
 @endsection
+<!--homepage ends here-->
 
- @section('script')
+<!-- script section-->
+@section('script')
     <!-- script section-->
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.0.0.min.js"></script>
     <script src="js/plugin.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -171,7 +174,5 @@
     <script src="js/owl.carousel.js"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>    
     <!-- script ends here-->
- @endsection
-
-</body>
-</html>
+@endsection
+<!-- script section-->

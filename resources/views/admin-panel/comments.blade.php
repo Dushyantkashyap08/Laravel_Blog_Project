@@ -1,91 +1,26 @@
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <!--sweetalert cdn-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script type="text/javascript">
-        function confirmation(event) {
-            event.preventDefault();
-            var urlToRedirect = event.currentTarget.getAttribute('href');
-    
-            console.log(urlToRedirect);
-    
-            swal({
-                title: "Are you sure to Delete this ?",
-                text: "You won't be able to revert this Delete",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-    
-            .then((willcancel) => {
-                if (willcancel) {
-                    window.location.href = urlToRedirect;
-                }
-            });
-        }
-    </script>
-    
-  <title>Document</title>
-  <style>
-      .all_posts{
-          font-size:40px; 
-          font-weight: bold; 
-          text-align: center; 
-          padding: 20px; 
-          color:white;
-          letter-spacing: 5px;
-      }
-
-      .all_post_table {
-        border: 1px solid white;
-        font-size:20px;
-        width: 90%;
-        text-align: center;
-        margin-left: 70px;
-      }
-
-      .head_row {
-        background-color: skyblue;
-      }
-
-      .post_img {
-        height:150px;
-        width: 150px;
-        padding: 30px;
-      }
-    .all_post_table th,
-    .all_post_table td {
-        padding: 15px;
-        border: 1px solid #ddd; /* Add a border to each cell */
-    }
-
-</style>
-
-</head>
-<body>
-  @extends('admin-panel.layouts.main')
-  
-      @section('comments')
+<!--extending layouts.main here-->
+@extends('admin-panel.layouts.main')
+  <!--comments goes here-->
+  @section('comments')
+      <!--d-flex goes here-->
       <div class="d-flex align-items-stretch">
   
-        @include('admin-panel.layouts.sidebar')
+      <!--sidebar goes here-->
+      @include('admin-panel.layouts.sidebar')
+      <!--sidebar ends here-->
 
-        
+        <!--page-content goes here-->
         <div class="page-content">
           
           <h1 class="all_posts">All Comments</h1>
           
           @if(session()->has('success'))
-          <div class="alert alert-danger">
-            <button type="button" class="close" data-dismiss="alert" aria-hideen="true">x</button>
-            {{session()->get('success')}}
-          </div>      
-        @endif
+            <div class="alert alert-danger">
+              <button type="button" class="close" data-dismiss="alert" aria-hideen="true">x</button>
+              {{session()->get('success')}}
+            </div>      
+          @endif
+           <!--table goes here-->
               <table class="all_post_table">
                 <tr class="head_row">
                   <th>Id</th>
@@ -111,12 +46,16 @@
                     {{$data->links('pagination::bootstrap-5')}}
                   </td>
                 </tr>
-              </table>
+            </table>
+            <!--table ends here-->
         </div>
+        <!--page-content ends here-->
       </div>
-  @endsection
+      <!--d-flex ends here-->
+@endsection
+<!--comments ends here-->
   
-  @section('script')
+@section('script')
       <!-- JavaScript files-->
       <script src="admin-template/vendor/jquery/jquery.min.js"></script>
       <script src="admin-template/vendor/popper.js/umd/popper.min.js"> </script>
@@ -124,7 +63,61 @@
       <script src="admin-template/vendor/jquery.cookie/jquery.cookie.js"> </script>
       <script src="admin-template/vendor/jquery-validation/jquery.validate.min.js"></script>
       <script src="admin-template/js/front.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script type="text/javascript">
+        function confirmation(event) {
+            event.preventDefault();
+            var urlToRedirect = event.currentTarget.getAttribute('href');
+    
+            console.log(urlToRedirect);
+    
+            swal({
+                title: "Are you sure to Delete this ?",
+                text: "You won't be able to revert this Delete",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+    
+            .then((willcancel) => {
+                if (willcancel) {
+                    window.location.href = urlToRedirect;
+                }
+            });
+        }
+    </script>
+      <style>
+        .all_posts{
+            font-size:40px; 
+            font-weight: bold; 
+            text-align: center; 
+            padding: 20px; 
+            color:white;
+            letter-spacing: 5px;
+        }
+        .all_post_table {
+          border: 1px solid white;
+          font-size:20px;
+          width: 90%;
+          text-align: center;
+          margin-left: 70px;
+        }
+        .head_row {
+          background-color: skyblue;
+        }
+  
+        .post_img {
+          height:150px;
+          width: 150px;
+          padding: 30px;
+        }
+      .all_post_table th,
+      .all_post_table td {
+          padding: 15px;
+          border: 1px solid #ddd; /* Add a border to each cell */
+      }
+  </style>
       <!-- JavaScript files ends here-->
-  @endsection
+@endsection
 </body>
 </html>

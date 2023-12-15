@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Comments;
-use Alert;
-use RealRashid\SweetAlert\Facades\Alert as FacadesAlert;
-
 use App\Models\User;
 
 class AdminPanelController extends Controller

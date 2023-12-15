@@ -4,6 +4,7 @@ use Illuminate\Support\Str;
 <!--extending layouts.main here-->
 @extends('blog.layouts.main')
 
+<!--my_post section starts here-->
 @section('my_posts')
 <section class="text-gray-600 body-font">
     <div class="container px-5 py-5 mx-auto">
@@ -33,10 +34,11 @@ use Illuminate\Support\Str;
             @endforeach
         </div>
     </div>
-    
     </section>
 @endsection
+<!--my_post section ends here-->
 
+<!--script starts here-->
 @section('script')
 
     <script src="js/jquery.min.js"></script>
@@ -52,7 +54,6 @@ use Illuminate\Support\Str;
 
 
     <script>
-        //category page 
         function toggleDescription(blogId) {
             var truncatedDesc = document.querySelector('#blogDesc' + blogId + ' .truncated-text');
             var fullDesc = document.querySelector('#blogDesc' + blogId + ' .full-description');
@@ -70,11 +71,6 @@ use Illuminate\Support\Str;
         }
         </script>
 
-
-
-
-   
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
      <script type="text/javascript">
        function confirmation(event) {
            event.preventDefault();
@@ -98,3 +94,4 @@ use Illuminate\Support\Str;
        }
    </script>
 @endsection
+<!--script ends here-->

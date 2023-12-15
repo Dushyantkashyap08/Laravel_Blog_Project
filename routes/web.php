@@ -21,15 +21,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//BlogViewController Routes here
+ Route::get('/',[BlogViewController::class,'viewHomepage']);
+ Route::get('/contact',[BlogViewController::class,'viewContact']);
+ Route::get('/about',[BlogViewController::class,'viewAbout']);
+ Route::get('/user_post',[BlogViewController::class,'userPost'])->middleware('auth');
 
 
-  Route::get('/',[BlogViewController::class,'viewHomepage']);
-  Route::get('/contact',[BlogViewController::class,'viewContact']);
-  Route::get('/about',[BlogViewController::class,'viewAbout']);
-  Route::get('/user_post',[BlogViewController::class,'userPost'])->middleware('auth');
-
-
-
+//AdminViewController Routes here
 Route::get('/home',[AdminViewController::class,'viewDashboard']);
 Route::get('/charts',[AdminViewController::class,'viewCharts']);
 Route::get('/show_post',[AdminViewController::class,'showPostPage']);
@@ -39,32 +38,33 @@ Route::get('/add_post',[AdminViewController::class,'addPostPage']);
 Route::get('/comments_table',[AdminViewController::class,'viewComments']);
 
 
-// Route::middleware(['auth'])->group(function () {
-   
-    Route::post('/add_post',[AdminPanelController::class,'addPost']);
-    Route::get('/delete_post/{id}',[AdminPanelController::class,'deletePost']);
-    Route::get('/accept_post/{id}',[AdminPanelController::class,'acceptPost'])->middleware('auth');
-    Route::get('/reject_post/{id}',[AdminPanelController::class,'rejectPost'])->middleware('auth');
-    Route::get('/delete_comment/{id}', [AdminPanelController::class, 'deleteComment'])->name('delete_comment');
-    // });
-    
-    Route::post('/send_mail', [MailController::class, 'sendMail'])->name('send_mail');
-    
-    Route::get('/post_details/{id}',[BlogController::class,'postDetails']);//b
-    Route::get('/submit_comment/{id}', [BlogController::class, 'submitComment'])->name('submit_comment');//b
-    Route::post('/create_post',[BlogController::class,'userCreatePost'])->middleware('auth');//b
-    Route::get('/my_post_del',[BlogController::class,'myPostDel'])->middleware('auth');//b
-    Route::get('/my_posts',[BlogController::class,'myPosts'])->middleware('auth');//b
+
+//AdminPanelController Routes here
+ Route::post('/add_post',[AdminPanelController::class,'addPost']);
+ Route::get('/delete_post/{id}',[AdminPanelController::class,'deletePost']);
+ Route::get('/accept_post/{id}',[AdminPanelController::class,'acceptPost'])->middleware('auth');
+ Route::get('/reject_post/{id}',[AdminPanelController::class,'rejectPost'])->middleware('auth');
+ Route::get('/delete_comment/{id}', [AdminPanelController::class, 'deleteComment'])->name('delete_comment');
+  
+
+//MailController Routes here
+ Route::post('/send_mail', [MailController::class, 'sendMail'])->name('send_mail');
+ 
+//BlogController Routes here
+ Route::get('/post_details/{id}',[BlogController::class,'postDetails']);//b
+ Route::get('/submit_comment/{id}', [BlogController::class, 'submitComment'])->name('submit_comment');//b
+ Route::post('/create_post',[BlogController::class,'userCreatePost'])->middleware('auth');//b
+ Route::get('/my_post_del',[BlogController::class,'myPostDel'])->middleware('auth');//b
+ Route::get('/my_posts',[BlogController::class,'myPosts'])->middleware('auth');//b
 
 
-
-    
-    Route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('home');
-    
-    Route::middleware('auth')->group(function () {
-        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+//HomeController Routes here
+ Route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('home');
+ 
+ Route::middleware('auth')->group(function () {
+     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+ });
 
 require __DIR__.'/auth.php';
